@@ -1,7 +1,7 @@
 ---
 import LaVeladaLogo from "../icons/la-velada.astro";
 
-const TIMESTAMP_END = 1709575200000;
+const TIMESTAMP_END = 1709575200000; 
 ---
 
 <section class="my-32 flex flex-col gap-y-10 justify-center items-center">
@@ -40,6 +40,7 @@ const TIMESTAMP_END = 1709575200000;
     const DAY = HOUR * 24;
 
     function init() {
+
         const $countdown = document.querySelector("[data-date]");
 
         if (!$countdown) return;
@@ -49,7 +50,8 @@ const TIMESTAMP_END = 1709575200000;
         const $minutes = $countdown.querySelector("[data-minutes] ");
         const $seconds = $countdown.querySelector("[data-seconds] ");
 
-        const timestamp = $countdown.getAttribute("date-date");
+        const timestamp = $countdown.getAttribute("data-date");
+
 
         if (!timestamp) return;
 
@@ -60,6 +62,7 @@ const TIMESTAMP_END = 1709575200000;
         };
 
         setInterval(updateCountdown, SECOND);
+        updateCountdown()
 
         function updateCountdown() {
             const now = Date.now();
@@ -79,4 +82,7 @@ const TIMESTAMP_END = 1709575200000;
             }
         }
     }
+
+    init()
+    
 </script>
